@@ -1,9 +1,17 @@
 import React from 'react';
+import PlayerForm from './PlayerForm';
+import Players from './Players';
 
 const Main = () => {
-    return (<div id="new-player-form"></div>  
-    <div id="all-players-container"></div>)
+    return (  
+    <>
+        <PlayerForm />
+        <Players />
+        <div id="all-players-container"></div>
+    </>
+    );
 };
+
 
 
 export default Main
