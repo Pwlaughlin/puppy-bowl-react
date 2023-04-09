@@ -4,11 +4,13 @@ const PlayerForm = () => {
     return (
     <div id='new-player-form'>
       <form>
-        <label for='name'>Name:</label>
+        <header>
+        <label HTMLfor='name'>Name:</label>
         <input type='text' name='name' />
-        <label for='breed'>Breed:</label>
+        <label  for='breed'>Breed:</label>
         <input type='text' name='breed' />
         <button type='submit'>Submit</button>
+        </header>
         </form>
         </div>
     );
@@ -16,3 +18,4 @@ const PlayerForm = () => {
 
 
 export default PlayerForm;
+

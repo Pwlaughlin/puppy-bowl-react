@@ -1,35 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PlayerCard from './PlayerCard';
+import PlayerForm from './PlayerForm';
+import SinglePlayer from './SinglePlayer';
 
+const Players = ({ players }) => {
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-const Players = () => {
-    return (  
+  const handlePlayerClick = (player) => {
+    setSelectedPlayer(player);
+  };
+
+  return (
     <>
-            <label for='search'>Search Players</label>
-            <input type='text' name='Search' />
-            <button type='submit'>Search</button>
-        <div id="all-players-container">
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/> 
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/> 
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/> 
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/>
-        <PlayerCard/> 
+      <div id="all-players-container">
+        <PlayerForm />
+        <div className="players-container">
+          {players.map((player) => (
+            <PlayerCard key={player.id} player={player} onPlayerClick={handlePlayerClick} />
+          ))}
         </div>
+        
+      </div>
+      {selectedPlayer && <SinglePlayer player={selectedPlayer} />}
     </>
-    );
+  );
 };
 
-
-
-export default Players
+export default Players;

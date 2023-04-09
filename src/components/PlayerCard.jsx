@@ -1,20 +1,24 @@
+
+
 import React from 'react';
-import Players from './Players';
 
-
-const PlayerCard = () => {
-    return (  
-    <table>
-        <tbody>
-        <tr>
-        <div>This is each player card</div>
-        </tr>
-        </tbody>
-    </table>
-    );
+const PlayerCard = ({ player, onPlayerClick }) => {
+  const handlePlayerClick = () => {
+    console.log('Player clicked:', player);  
+    onPlayerClick(player);    
+  };
+  
+  return (
+    <div className="single-player-card" key={player.id}>
+      <img src={player.imageUrl} alt={player.name} />
+      <h2>{player.name}</h2>
+      <p>{player.breed}</p>
+      <button  onClick={handlePlayerClick}>Details</button>
+   
+    </div>
+  );
 };
 
-
-
-
 export default PlayerCard;
+
+ 
